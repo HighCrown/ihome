@@ -1,0 +1,39 @@
+/*边角*/
+#radius{
+	background: #FFFFFF;
+	border-bottom-left-radius: 5px;		/*左下边圆形*/
+	border-bottom-right-radius: 5px;	/*右下边圆形*/
+	border-top-left-radius: 5px;		/*左上边圆形*/
+	border-top-right-radius: 5px;		/*左上边圆形*/
+	
+}	
+
+hr{
+	margin-top: 35px;					/*上边距*/
+	margin-bottom: 10px;				/*下边距*/
+}
+
+#img{
+	width: 140%;
+	height: 140%;
+	margin-left: 10px;
+    margin-bottom:10px;
+   
+}
+
+/*底部信息*/
+#feet{
+	color: #99999C;						/*灰色*/
+	text-align: center;
+	margin-top: 10px;					/*上边距*/
+	margin-bottom: 10px;				/*下边距*/
+}
+
+/*li标签去点*/
+ul li{
+
+list-style: none;
+
+}
+
+body { padding-top: 50px; }

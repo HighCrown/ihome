@@ -1,0 +1,20 @@
+<c3p0-config>
+  <!-- 使用默认的配置读取连接池对象 -->
+  <default-config>
+  	<!--  连接参数 -->
+    <property name="driverClass">com.mysql.jdbc.Driver</property>
+    <property name="jdbcUrl">jdbc:mysql://39.106.71.75:3306/ihome</property>
+    <property name="user">root</property>
+    <property name="password">root</property>
+    
+    <!-- 连接池参数 -->
+    <!--initialPoolSize 初始化的连接数量  -->
+    <property name="initialPoolSize">5</property>
+    <!--maxPoolSize 最大连接数  -->
+    <property name="maxPoolSize">10</property>
+    <!--checkoutTimeout 连接超时时间  -->
+    <property name="checkoutTimeout">3000</property>
+  </default-config>
+
+
+</c3p0-config>

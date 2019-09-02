@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>爱家</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="plugins/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet">
+<link href="css/reset.css" rel="stylesheet">
+<link href="plugins/swiper/css/swiper.min.css" rel="stylesheet">
+<link
+	href="plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css"
+	rel="stylesheet">
+<link href="css/ihome/main.css" rel="stylesheet">
+<link href="css/ihome/index.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="top-bar">
+			<img class="logo fl" src="img/logo@128x59.png">
+			<div class="register-login fr">
+				<a class="btn top-btn btn-theme" href="regist.html">注册</a> <a
+					class="btn top-btn btn-theme" href="login.jsp">登录</a>
+			</div>
+			<div class="user-info fr">
+				<span><i class="fa fa-user fa-lg"></i></span> <a id="user-name"
+					href="my.jsp"></a>
+			</div>
+		</div>
+		<br>
+
+
+		<!-- 轮播图 -->
+		<div class="carousel slide" id="slidershow" data-ride="carousel"
+			data-interval="4000">
+			<!--计数器-->
+			<ol class="carousel-indicators">
+				<li class="active" data-target="#slidershow" data-slide-to="0"></li>
+				<li data-target="#slidershow" data-slide-to="1"></li>
+				<li data-target="#slidershow" data-slide-to="2"></li>
+			</ol>
+			<!--图片容器-->
+			<div class="swiper-slide">
+			<div class="carousel-inner" align="center">
+				<div class="item active">
+					<a href="detail.jsp?id=1"><img src="img/home01.jpg"
+						class="img-rounded" /></a>
+				</div>
+				<div class="item">
+					<a href="detail.jsp?id=2"><img src="img/home02.jpg"
+						class="img-rounded" /></a>
+				</div>
+				<div class="item">
+					<a href="detail.jsp?id=3"><img src="img/home03.jpg"
+						class="img-rounded" /></a>
+				</div>
+			</div>
+			</div>
+		</div>
+		<br>
+
+
+		<!--选择城区-->
+		<button class="filter-btn btn-info active" type="button"
+			data-toggle="modal" data-target="#area-modal">
+			<span class="fl" id="area-btn">选择城区</span><span class="fr"><i
+				class="fa fa-map-marker fa-lg fa-fw"></i></span>
+		</button>
+		<!--入住日期-->
+		<button class="filter-btn btn-info active" type="button"
+			data-toggle="modal" data-target="#start-date-modal">
+			<span class="fl" id="start-date-btn">入住日期</span><span class="fr"><i
+				class="fa fa-calendar fa-lg fa-fw"></i></span>
+		</button>
+		<!--离开日期-->
+		<button class="filter-btn end-date btn-info active" type="button"
+			data-toggle="modal" data-target="#end-date-modal">
+			<span class="fl" id="end-date-btn">离开日期</span><span class="fr"><i
+				class="fa fa-calendar fa-lg fa-fw"></i></span>
+		</button>
+		<!--搜索框-->
+		<a class="btn search-btn btn-theme" href="#"
+			onclick="goToSearchPage(this);" area-id="" area-name="" start-date=""
+			end-date="">搜索</a>
+
+
+		<!-- 城区 -->
+		<div class="modal fade" id="area-modal" tabindex="-1" role="dialog"
+			aria-labelledby="area-label">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="area-label">选择城区</h4>
+					</div>
+					<div class="modal-body">
+						<div class="area-list" id="areaModal"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 入住日期 -->
+		<div class="modal fade" id="start-date-modal" tabindex="-1"
+			role="dialog" aria-labelledby="start-date-label">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="start-date-label">入住日期</h4>
+					</div>
+					<div class="modal-body">
+						<div class="date-select" id="start-date"></div>
+						<input type="hidden" id="start-date-input">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-theme"
+							onclick="setStartDate();">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 离开日期 -->
+		<div class="modal fade" id="end-date-modal" tabindex="-1"
+			role="dialog" aria-labelledby="end-date-label">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="end-date-label">离开日期</h4>
+					</div>
+					<div class="modal-body">
+						<div class="date-select" id="end-date"></div>
+						<input type="hidden" id="end-date-input">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-theme"
+							onclick="setEndDate();">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<p>
+			<span><i class="fa fa-copyright"></i></span>爱家租房&nbsp;&nbsp;享受家的温馨
+		</p>
+	</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		/* 鼠标点击特效 */
+		var a_idx = 0;
+		jQuery(document).ready(
+				function($) {
+					$("body").click(
+							function(e) {
+								var a = new Array("富强", "民主", "文明", "和谐", "自由",
+										"平等", "公正", "法治", "爱国", "敬业", "诚信",
+										"友善");
+								var $i = $("<span/>").text(a[a_idx]);
+								a_idx = (a_idx + 1) % a.length;
+								var x = e.pageX, y = e.pageY;
+								$i.css({
+									"z-index" : 100000000,
+									"top" : y - 20,
+									"left" : x,
+									"position" : "absolute",
+									"font-weight" : "bold",
+									"color" : "#ff6651"
+								});
+								$("body").append($i);
+								$i.animate({
+									"top" : y - 180,
+									"opacity" : 0
+								}, 1500, function() {
+									$i.remove();
+								});
+							});
+				});
+	</script>
+	<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="plugins/swiper/js/swiper.jquery.min.js"></script>
+	<script
+		src="plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	<script
+		src="plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+	<script src="js/template.js"></script>
+	<script src="js/ihome/index.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+</body>
+</html>
